@@ -1,0 +1,37 @@
+.root {
+	-fx-background-image: url("background-menu.png");
+}
+
+.ButtonsMenu {
+	-fx-background-color: linear-gradient(#FFF, #01844b, #13ad6a);
+	-fx-background-radius: 100.0;
+	-fx-background-insets: 0.0;
+	-fx-text-fill: white;	
+	-fx-font-family: "Times New Roman";
+	-fx-padding: 15.0px 32.0px;
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 18.0px;
+}
+
+.ButtonsMenu:hover {
+	-fx-cursor: hand;
+	-fx-effect: dropshadow(three-pass-box, rgba(0.0, 0.0, 0.0, 1.0), 5.0, 0.0, 0.0, 1.0);
+	-fx-background-color: #fff;
+	-fx-text-fill: black;
+}
+
+.TitleMenu {	
+-fx-text-fill: linear-gradient(#FFF, #01844b, #13ad6a, #FFF);
+-fx-font-weight:bold;
+-fx-font-family: 'Raleway',sans-serif;
+-fx-font-size: 60.0px;
+}
+
+.SubTitleMenu {
+-fx-text-fill: linear-gradient(#FFF, #01844b, #13ad6a, #FFF);
+-fx-font-weight:bold;
+-fx-font-family: 'Raleway',sans-serif;
+-fx-font-size: 15.0px;
+}
