@@ -155,13 +155,12 @@ public class ExecutionGame {
 		return execution;
 	}
 
-	public static void contarSegundos() {
-		ScheduledExecutorService countSeconds = Executors.newScheduledThreadPool(1);
-		countSeconds.scheduleAtFixedRate(new Runnable() {
-			public void run() {
-					seconds -= 1;
+	public static void countSeconds() {
 
-			}
+		ScheduledExecutorService countSeconds = Executors.newScheduledThreadPool(1);
+
+		countSeconds.scheduleAtFixedRate(() -> {
+			seconds -= 1;
 		}, 1, 1, TimeUnit.SECONDS);
 	}
 
@@ -169,6 +168,7 @@ public class ExecutionGame {
 
 		JOptionPane.showMessageDialog(null,
 				"ACABOU O TEMPO!!!\nSua Pontuação: " + CompositionTrashTypePattern.getScoreFinal());
+
 		System.exit(0);
 	}
 }

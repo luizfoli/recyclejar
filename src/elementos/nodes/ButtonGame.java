@@ -4,17 +4,15 @@ import javax.swing.JOptionPane;
 
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import screen.ExecutionGame;
 
 /**
+ * Class responsible for all buttons in the game.
  * 
- * @author Luiz Oliveira
- * 
- *         Classe responsável pelos botões da tela de menu do game.
+ * @author LFO
  *
  */
 
@@ -26,8 +24,18 @@ public class ButtonGame {
 	private Button startGame;
 	private Button exitGame;
 	private Button endGame;
-	
+
 	public static boolean cond = false;
+
+	/**
+	 * 
+	 * Responsible for init the game, when it's click the scene will change for the
+	 * execution game scene and the seconds will start to count.
+	 * 
+	 * @param frame
+	 * @param scene
+	 * @return
+	 */
 
 	public Button getStartGame(final Stage frame, final Scene scene) {
 
@@ -35,21 +43,24 @@ public class ButtonGame {
 
 		startGame.getStyleClass().add("ButtonsMenu");
 
-		startGame.setOnAction(new EventHandler<ActionEvent>() {
+		startGame.setOnAction((ActionEvent event) -> {
 
-			public void handle(ActionEvent event) {
-				
-				frame.setScene(scene);
-				frame.show();
-				ExecutionGame.contarSegundos();
-				cond = true;
-				
-			}
+			frame.setScene(scene);
+			frame.show();
+			ExecutionGame.countSeconds();
+			cond = true;
 
 		});
 
 		return startGame;
 	}
+
+	/**
+	 * Responsible for the close in the menu. When it's click an alert will appear
+	 * asking if wants to close the game.
+	 * 
+	 * @return
+	 */
 
 	public Button getExitGame() {
 
@@ -57,31 +68,27 @@ public class ButtonGame {
 
 		exitGame.getStyleClass().add("ButtonsMenu");
 
-		exitGame.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event) {
+		exitGame.setOnAction((ActionEvent event) -> {
 
-				if (JOptionPane.showConfirmDialog(null, "Tem certeza?", "AVISO DO GAME",
-						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-					System.exit(0);
-				} else {
-				}
+			if (JOptionPane.showConfirmDialog(null, "Tem certeza?", "AVISO DO GAME",
+					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+				System.exit(0);
 			}
 		});
 
 		return exitGame;
 	}
 
+	
+	
 	public Button getEndGame(AnimationTimer execucao) {
 
 		endGame = node.createButton("Desistir?", 450, 10);
-		endGame.getStyleClass().add("ButtonsGame");
-		endGame.setOnAction(new EventHandler<ActionEvent>() {
 
-			@Override
-			public void handle(ActionEvent arg0) {
-				execucao.stop();
-			}
-		});
+		endGame.getStyleClass().add("ButtonsGame");
+
+		endGame.setOnAction((ActionEvent event) -> execucao.stop());
+
 		return endGame;
 	}
 }

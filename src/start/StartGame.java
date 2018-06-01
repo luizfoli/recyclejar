@@ -20,6 +20,7 @@ public class StartGame extends Application {
 	private MenuGame mg = new MenuGame();
 	private VarTelas var = new VarTelas();
 
+	
 	@Override
 	public void start(Stage nl) throws Exception {
 
