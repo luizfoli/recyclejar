@@ -21,9 +21,9 @@ public class StartGame extends Application {
 	@Override
 	public void start(Stage nl) throws Exception {
 
-		frame.getIcons().add(new Image(getClass().getResourceAsStream(var.get_logoGame())));
+		frame.getIcons().add(new Image(getClass().getResourceAsStream(var.getLogoGame())));
 		frame.setScene(mg.sceneMenu());
-		frame.setTitle(var.get_titleGame());
+		frame.setTitle(var.getTitleGame());
 		frame.setResizable(false);
 		frame.show();
 		
