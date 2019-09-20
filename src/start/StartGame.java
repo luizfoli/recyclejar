@@ -7,11 +7,8 @@ import screen.MenuGame;
 import screen.VarTelas;
 
 /**
- * 
- * @author Luiz Felipe Oliveira
- * 
- *         Classe main do projeto, responsável pela execução do Game.
- *
+ *	Classe main do projeto, responsÃ¡vel pelo boot inicial.
+ *	@author Luiz Oliveira
  */
 
 public class StartGame extends Application {
