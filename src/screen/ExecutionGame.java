@@ -129,13 +129,12 @@ public class ExecutionGame {
 				if (ButtonGame.cond) {
 
 					PauseTransition delay = new PauseTransition(Duration.seconds(17));
-					delay.setOnFinished(event -> finishExecutionGame());
 					delay.play();
 
 					// Escreve os placares de pontos na tela
 					writeCountScoreInScreen();
 
-					// Verifica se houve alguma colissão entre as latas de lixos e os lixos
+					// Verifica se houve alguma colissï¿½o entre as latas de lixos e os lixos
 					paperTrash.condColission(root);
 					plasticTrash.condColission(root);
 					glassTrash.condColission(root);
@@ -158,17 +157,17 @@ public class ExecutionGame {
 	public static void countSeconds() {
 
 		ScheduledExecutorService countSeconds = Executors.newScheduledThreadPool(1);
-
 		countSeconds.scheduleAtFixedRate(() -> {
-			seconds -= 1;
+			
+			if(seconds > 0) {
+				seconds -= 1;
+				return;
+			}
+			
+			JOptionPane.showMessageDialog(null,
+					"ACABOU O TEMPO!!!\nYour score: " + CompositionTrashTypePattern.getScoreFinal());
+			System.exit(0);
+			
 		}, 1, 1, TimeUnit.SECONDS);
-	}
-
-	public void finishExecutionGame() {
-
-		JOptionPane.showMessageDialog(null,
-				"ACABOU O TEMPO!!!\nSua Pontuação: " + CompositionTrashTypePattern.getScoreFinal());
-
-		System.exit(0);
 	}
 }
